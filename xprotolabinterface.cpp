@@ -1400,7 +1400,7 @@ void XprotolabInterface::moveCursor(QMouseEvent *event)
               triggerLevel = rangeMax/4;
             else if(triggerLevel>rangeMax*3/4)
               triggerLevel = rangeMax*3/4;
-            setTriggerLevelPosition(event->localPos(),Other);
+            setTriggerLevelPosition(event->pos(),Other);
 //            static int times = 0;
 
 //            if(times <10)
@@ -1431,7 +1431,7 @@ void XprotolabInterface::moveCursor(QMouseEvent *event)
               triggerWin1Level = rangeMax/4;
             else if(triggerWin1Level>rangeMax*3/4)
               triggerWin1Level = rangeMax*3/4;
-            setTriggerLevelPosition(event->localPos(),Window1);
+            setTriggerLevelPosition(event->pos(),Window1);
         }
         else if(currentSelected == isTriggerWin2Pixmap)
         {
@@ -1452,7 +1452,7 @@ void XprotolabInterface::moveCursor(QMouseEvent *event)
               triggerWin2Level = rangeMax/4;
             else if(triggerWin1Level>rangeMax*3/4)
               triggerWin2Level = rangeMax*3/4;
-            setTriggerLevelPosition(event->localPos(),Window2);
+            setTriggerLevelPosition(event->pos(),Window2);
         }
 
     }
@@ -1517,37 +1517,37 @@ void XprotolabInterface::selectItem(QMouseEvent *event)
 {
     if(!(event->buttons() & Qt::LeftButton))
         return;
-    if(hCursorAHead->selectTest(event->localPos(),false)>=0 && hCursorAHead->selectTest(event->localPos(),false)<8.0)
+    if(hCursorAHead->selectTest(event->pos(),false)>=0 && hCursorAHead->selectTest(event->pos(),false)<8.0)
     {
         currentSelected = isHCursorAHead;
         hCursorAHead->setPen(QPen(QColor("#1692e5")));
     }
-    else if(hCursorBHead->selectTest(event->localPos(),false)>=0 && hCursorBHead->selectTest(event->localPos(),false)<8.0)
+    else if(hCursorBHead->selectTest(event->pos(),false)>=0 && hCursorBHead->selectTest(event->pos(),false)<8.0)
     {
         currentSelected = isHCursorBHead;
         hCursorBHead->setPen(QPen(QColor("#1692e5")));
     }
-    else if(vCursorAHead->selectTest(event->localPos(),false)>=0 && vCursorAHead->selectTest(event->localPos(),false)<8.0)
+    else if(vCursorAHead->selectTest(event->pos(),false)>=0 && vCursorAHead->selectTest(event->pos(),false)<8.0)
     {
         currentSelected = isVCursorAHead;
         vCursorAHead->setPen(QPen(QColor("#e04e4e")));
     }
-    else if(vCursorBHead->selectTest(event->localPos(),false)>=0 && vCursorBHead->selectTest(event->localPos(),false)<8.0)
+    else if(vCursorBHead->selectTest(event->pos(),false)>=0 && vCursorBHead->selectTest(event->pos(),false)<8.0)
     {
         currentSelected = isVCursorBHead;
         vCursorBHead->setPen(QPen(QColor("#e04e4e")));
     }
-    else if(ch1ZeroHead->selectTest(event->localPos(),false)>=0 && ch1ZeroHead->selectTest(event->localPos(),false)<8.0)
+    else if(ch1ZeroHead->selectTest(event->pos(),false)>=0 && ch1ZeroHead->selectTest(event->pos(),false)<8.0)
     {
         currentSelected = isCH1Zero;
         ch1ZeroHead->setPen(QPen(QColor("#f9a94c")));
     }
-    else if(ch2ZeroHead->selectTest(event->localPos(),false)>=0 && ch2ZeroHead->selectTest(event->localPos(),false)<8.0)
+    else if(ch2ZeroHead->selectTest(event->pos(),false)>=0 && ch2ZeroHead->selectTest(event->pos(),false)<8.0)
     {
         currentSelected = isCH2Zero;
         ch2ZeroHead->setPen(QPen(QColor("#f9a94c")));
     }
-    else if(triggerPixmap->selectTest(event->localPos(),false)>=0 && triggerPixmap->selectTest(event->localPos(),false)<8.0)
+    else if(triggerPixmap->selectTest(event->pos(),false)>=0 && triggerPixmap->selectTest(event->pos(),false)<8.0)
     {
         currentSelected = isTriggerPixmap;
         if(ui->comboBoxTrigSource->currentIndex()==0)
@@ -1555,7 +1555,7 @@ void XprotolabInterface::selectItem(QMouseEvent *event)
         else
             triggerPixmap->setPen(QPen(QColor("#ff0000")));
     }
-    else if(triggerWin1Pixmap->selectTest(event->localPos(),false)>=0 && triggerWin1Pixmap->selectTest(event->localPos(),false)<8.0)
+    else if(triggerWin1Pixmap->selectTest(event->pos(),false)>=0 && triggerWin1Pixmap->selectTest(event->pos(),false)<8.0)
     {
         currentSelected = isTriggerWin1Pixmap;
         if(ui->comboBoxTrigSource->currentIndex()==0)
@@ -1563,7 +1563,7 @@ void XprotolabInterface::selectItem(QMouseEvent *event)
         else
             triggerWin1Pixmap->setPen(QPen(QColor("#ff0000")));
     }
-    else if(triggerWin2Pixmap->selectTest(event->localPos(),false)>=0 && triggerWin2Pixmap->selectTest(event->localPos(),false)<8.0)
+    else if(triggerWin2Pixmap->selectTest(event->pos(),false)>=0 && triggerWin2Pixmap->selectTest(event->pos(),false)<8.0)
     {
         currentSelected = isTriggerWin2Pixmap;
         if(ui->comboBoxTrigSource->currentIndex()==0)
