@@ -1,0 +1,7 @@
+moc_*
+*.o
+Makefile
+qrc_*
+ui_customtheme.h
+ui_xprotolabinterface.h
+xscope
