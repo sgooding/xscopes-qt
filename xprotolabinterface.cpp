@@ -1123,13 +1123,13 @@ void XprotolabInterface::plotData()
         QString unit;
         deltaTime = ui->plotterWidget->xAxis->pixelToCoord(vCursorBHead->bottom->pixelPoint().rx());
         deltaTime = deltaTime - ui->plotterWidget->xAxis->pixelToCoord(vCursorAHead->bottom->pixelPoint().rx());
-        if(deltaTime<0)
-            deltaTime = deltaTime*-1;
+        if(deltaTime<0.0)
+            deltaTime = deltaTime*-1.0;
 
         unit = (rateText[ui->samplingSlider->value()]);
         for(int i = 0; i<unit.length();i++)
         {
-            if(unit[i]=='m'||unit[i]=='s'||unit[i].toLatin1()==QChar('μ').toLatin1())
+            if(unit[i]=='m'||unit[i]=='s'||unit[i].toLatin1()==QChar('u').toLatin1())
             {
                 value = unit.left(i).toDouble();
                 unit = unit.remove(unit.left(i));
@@ -1147,7 +1147,7 @@ void XprotolabInterface::plotData()
             unit = "kHz";
         else
             unit = "Hz";
-        freq = freq*1000;
+        freq = freq*1000.0;
         textLabelFrequency->setText(("1/ΔT = "+QString::number(freq, 'g', 4)+" "+unit));
        // ui->timeLabel->setText("Time = "+rateText[ui->samplingSlider->value()].toLatin1());
     }
@@ -4083,7 +4083,7 @@ void XprotolabInterface::on_radioButton100K_clicked()
 void XprotolabInterface::setupValues()
 {
     // Sampling rate
-    rateText << "8μs/div" << "16μs/div" << "32μs/div" << "64μs/div" << "128μs/div" << "256μs/div" << "500μs/div" << "1ms/div"
+    rateText << "8us/div" << "16us/div" << "32us/div" << "64us/div" << "128us/div" << "256us/div" << "500us/div" << "1ms/div"
              << "2ms/div" << "5ms/div" << "10ms/div" << "20ms/div" << "50ms/div" << "0.1s/div" << "0.2s/div" << "0.5s/div"
              << "1s/div" << "2s/div" << "5s/div" << "10s/div" << "20s/div" << "50s/div";
     // Gain Text with x1 probe
